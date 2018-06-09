@@ -10,10 +10,6 @@ public class TrackManager : MonoBehaviour
         Game.GateAchieved += SetNewGate;
     }
 
-    //wszystkie te metody podepnie sie pod event wlasny, albo jakis Trigger na obiekcie (bez mesha)
-    //potem event.Invoke() w onGestureCorrect()
-    //moze Static?
-
     public static void RemoveWall(GameObject wall)
     {
         Destroy(wall);

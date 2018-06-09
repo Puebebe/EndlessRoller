@@ -25,7 +25,8 @@ public class PlayerController : MonoBehaviour
 
         #if UNITY_ANDROID && !UNITY_EDITOR
         movement = new Vector3(Input.acceleration.x, 0, - Mathf.Clamp(Input.acceleration.z + 0.5f, -0.2f, 0.2f));
-        Debug.Log(movement.magnitude + "\n" + Input.acceleration.z);
+        Debug.Log("movement = " + movement.magnitude);
+        Debug.Log("acceleration.z = " + Input.acceleration.z);
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
