@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Game : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class Game : MonoBehaviour
         set
         {
             points = value;
-            //UI
+            GameObject.Find("Score").GetComponent<Text>().text = "Score: " + points;
         }
     }
 
