@@ -25,6 +25,10 @@ public class TrackManager : MonoBehaviour
     void SetNewGate()
     {
         //instantiate z prefaba z losowa tekstura itd.
+        var prefab = (GameObject) Resources.Load("Gate");
+        var gate = Instantiate(prefab);
+        gate.transform.SetParent(GameObject.Find("Gates").transform);
+        Debug.Log("gate " + gate.transform.position);
         Debug.Log("New gate set");
     }
 
