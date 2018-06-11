@@ -4,6 +4,21 @@ using UnityEngine;
 
 public class TrackManager : MonoBehaviour
 {
+    private static GameObject lastAchievedGate;
+
+    public static GameObject LastAchievedGate
+    {
+        get
+        {
+            return lastAchievedGate;
+        }
+
+        set
+        {
+            lastAchievedGate = value;
+        }
+    }
+
     void Start()
     {
         Game.GateAchieved += UpdateScore;
@@ -24,10 +39,16 @@ public class TrackManager : MonoBehaviour
 
     void SetNewGate()
     {
-        //instantiate z prefaba z losowa tekstura itd.
         var prefab = (GameObject) Resources.Load("Gate");
-        var gate = Instantiate(prefab);
-        gate.transform.SetParent(GameObject.Find("Gates").transform);
+        var lastPosition = lastAchievedGate.transform.position;
+        var position = new Vector3(lastPosition.x, lastPosition.y, lastPosition.z + 30);
+        var rotation = prefab.transform.rotation;
+        var parent = GameObject.Find("Gates").transform;
+
+        var gate = Instantiate(prefab, position, rotation, parent);
+        gate.name = "Gate";
+        gate.transform.GetChild(0).GetComponent<Renderer>().material.color = Color.yellow;
+
         Debug.Log("gate " + gate.transform.position);
         Debug.Log("New gate set");
     }

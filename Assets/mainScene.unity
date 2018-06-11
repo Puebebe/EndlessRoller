@@ -273,9 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cf763e44b00e1340bdfc560b3a60bc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 2800000, guid: c135be144b80fb04a8368f8a9b979491, type: 3}
-  display: {fileID: 2800000, guid: 5206e9b0c38e9644996e5d36bb521649, type: 3}
-  timer: 1
+  texture: {fileID: 2800000, guid: c135be144b80fb04a8368f8a9b979491, type: 3}
   player: {fileID: 389893648}
 --- !u!23 &214396220
 MeshRenderer:
@@ -1666,7 +1664,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh12220
+  m_Name: pb_Mesh12224
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -1836,7 +1834,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh12258
+  m_Name: pb_Mesh12262
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -3624,7 +3622,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh12298
+  m_Name: pb_Mesh-1126
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -3793,9 +3791,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cf763e44b00e1340bdfc560b3a60bc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 0}
-  display: {fileID: 2800000, guid: 5206e9b0c38e9644996e5d36bb521649, type: 3}
-  timer: 1
+  texture: {fileID: 0}
   player: {fileID: 0}
 --- !u!1 &2062836151
 GameObject:
@@ -3920,6 +3916,10 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1946845580}
+    - target: {fileID: 4322671563257082, guid: 78f143fde8d82844ca5897deb6f80d68, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 78f143fde8d82844ca5897deb6f80d68, type: 2}
   m_IsPrefabParent: 0
