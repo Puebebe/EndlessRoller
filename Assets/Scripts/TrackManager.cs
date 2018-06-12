@@ -4,20 +4,13 @@ using UnityEngine;
 
 public class TrackManager : MonoBehaviour
 {
-    private static GameObject lastAchievedGate;
+    [SerializeField]
+    GameObject lastSetGate;
 
-    public static GameObject LastAchievedGate
-    {
-        get
-        {
-            return lastAchievedGate;
-        }
+    [SerializeField]
+    List<Texture2D> textures;
 
-        set
-        {
-            lastAchievedGate = value;
-        }
-    }
+    int nextGate = 3;
 
     void Start()
     {
@@ -40,17 +33,23 @@ public class TrackManager : MonoBehaviour
     void SetNewGate()
     {
         var prefab = (GameObject) Resources.Load("Gate");
-        var lastPosition = lastAchievedGate.transform.position;
-        var position = new Vector3(lastPosition.x, lastPosition.y, lastPosition.z + 30);
+        var lastPosition = lastSetGate.transform.position;
+        var position = new Vector3(lastPosition.x, lastPosition.y, lastPosition.z + 10);
         var rotation = prefab.transform.rotation;
         var parent = GameObject.Find("Gates").transform;
 
         var gate = Instantiate(prefab, position, rotation, parent);
-        gate.name = "Gate";
-        gate.transform.GetChild(0).GetComponent<Renderer>().material.color = Color.yellow;
+        gate.name = "Gate" + nextGate++;
 
-        Debug.Log("gate " + gate.transform.position);
-        Debug.Log("New gate set");
+        var wall = gate.transform.GetChild(0);
+        Texture2D texture = textures[Random.Range(0, textures.Count)];
+        wall.GetComponent<Renderer>().material.mainTexture = texture;
+        wall.GetComponent<GestureScriptSingle>().player = GameObject.Find("Player");
+        wall.GetComponent<GestureScriptSingle>().texture = texture;
+        
+        Debug.Log(gate.name + " set");
+
+        lastSetGate = gate;
     }
 
     void OnDestroy()

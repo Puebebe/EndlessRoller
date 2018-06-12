@@ -13,7 +13,6 @@ public class GateChecker : MonoBehaviour
 
         if (!isAchieved)
         {
-            TrackManager.LastAchievedGate = gameObject.transform.parent.gameObject;
             Game.OnGateAchieved();
             isAchieved = true;
         }

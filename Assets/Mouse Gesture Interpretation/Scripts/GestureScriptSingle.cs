@@ -11,7 +11,7 @@ public class GestureScriptSingle : MonoBehaviour
     
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
     }
 
     //This method is needed for the Gesture to run, here you set Texture for recognition and can set the sucess rate needed to be achived
