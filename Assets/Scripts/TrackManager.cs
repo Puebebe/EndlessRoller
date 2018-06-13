@@ -8,14 +8,23 @@ public class TrackManager : MonoBehaviour
     GameObject lastSetGate;
 
     [SerializeField]
+    int nextGate;
+
+    [SerializeField]
     List<Texture2D> textures;
 
-    int nextGate = 3;
 
     void Start()
     {
         Game.GateAchieved += UpdateScore;
         Game.GateAchieved += SetNewGate;
+
+        for (int i = 1; i < nextGate; i++)
+        {
+            var gate = GameObject.Find("Gate" + i);
+            var wall = gate.transform.GetChild(0);
+            SetRandomTexture(wall);
+        }
     }
 
     public static void RemoveWall(GameObject wall)
@@ -42,14 +51,19 @@ public class TrackManager : MonoBehaviour
         gate.name = "Gate" + nextGate++;
 
         var wall = gate.transform.GetChild(0);
-        Texture2D texture = textures[Random.Range(0, textures.Count)];
-        wall.GetComponent<Renderer>().material.mainTexture = texture;
+        SetRandomTexture(wall);
         wall.GetComponent<GestureScriptSingle>().player = GameObject.Find("Player");
-        wall.GetComponent<GestureScriptSingle>().texture = texture;
         
         Debug.Log(gate.name + " set");
 
         lastSetGate = gate;
+    }
+
+    void SetRandomTexture(Transform wall)
+    {
+        Texture2D texture = textures[Random.Range(0, textures.Count)];
+        wall.GetComponent<Renderer>().material.mainTexture = texture;
+        wall.GetComponent<GestureScriptSingle>().texture = texture;
     }
 
     void OnDestroy()
